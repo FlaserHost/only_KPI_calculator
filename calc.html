@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Калькулятор подбора</title>
+    <link rel="stylesheet" href="calculator_pers.css">
+    <link rel="stylesheet" href="calculator_adaptive_pers.css">
+</head>
+<body>
+<section class="main-content__calculator" id="calculator-section">
+    <h2>Сравнить тарифы на облачную версию</h2>
+    <div class="calculator-form-wrapper">
+        <div class="new-form-area">
+            <h3>Заполните поля, чтобы рассчитать стоимость</h3>
+            <form class="new-calculator-form" id="new-calculator-form" action="#" method="POST">
+                <div class="new-calculator-form__new-form-fields">
+                    <div class="field-area field-area-1">
+                        <div class="input-place">
+                            <input class="form-field form-field-1" id="kedo-field" name="kedo-field" type="number" value="1">
+                            <div class="triangle-btn triangle-up" data-property="up"></div>
+                            <div class="triangle-btn triangle-down" data-property="down"></div>
+                        </div>
+                        <div class="field-description">
+                            <label for="kedo-field">Количество рекрутеров</label>
+                        </div>
+                    </div>
+                    <div class="field-area field-area-2">
+                        <div class="input-place">
+                            <select class="form-field form-field-2" name="vcep-field" id="vcep-field">
+                                <option value="5" selected>5</option>
+                                <option value="10">10</option>
+                                <option value="20">20</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                            </select>
+                        </div>
+                        <div class="field-description">
+                            <div class="question-mark"></div>
+                            <label for="vcep-field">Одновременных сессий внутренних клиентов</label>
+                            <div class="question-hint">
+                                <p><span class="bold-text">Одновременных</span> подключений к базе пользователей с ролями: внутренний клиент, сотрудник СБ и др. При количестве подключений свыше 50 - расчет по запросу</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="new-form-btns">
+                    <a class="new-form-btn new-form-btn-1" id="consultation-btn" href="#" target="_Blank">Запросить счет</a>
+                    <button class="new-form-btn new-form-btn-2" id="calculate-btn" type="submit">Рассчитать</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="rates-outer-block">
+        <div class="sticky-rink">
+            <article class="rates-wrapper">
+                <table class="table-rates">
+                    <tr class="header-row">
+                        <th>Тарифы</th>
+                        <td>Быстрый старт</td>
+                        <td>Расширенный</td>
+                        <td>Корпоративный</td>
+                    </tr>
+                    <tr class="prices-row">
+                        <th>Стоимость</th>
+                        <td>
+                            <span class="price fast-start">4 000 руб</span>
+                            <div class="block_with_question_mark">
+                                <span class="period">за 1 месяц</span>
+                                <div class="question-mark"></div>
+                                <div class="question-hint">
+                                    <p>предоплата за полгода</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="price extended">8 000 руб</span>
+                            <div class="block_with_question_mark">
+                                <span class="period">за 1 месяц</span>
+                                <div class="question-mark"></div>
+                                <div class="question-hint">
+                                    <p>предоплата за полгода</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="request-rate-flex">
+                            <span class="price">по запросу</span>
+                        </td>
+                    </tr>
+                </table>
+            </article>
+            <div class="functions-window">
+                <div class="functions-window__table-place">
+                    <table class="functions-table">
+                        <tr class="pivot-header">
+                            <th colspan="3">Постановка целей и виды оценок</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Обеспечивайте эффективный контроль поставленных целей и
+                                        задач при реализации стратегии компании благодаря принципам
+                                        методологии Objectives and Key Results: доступность ключевых показателей,
+                                        постановка снизу вверх, гибкость и др.
+                                    </p>
+                                </div>
+                                Поддержка методологии OKR
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Формируйте сбалансированные карты целей, которые
+                                        позволяет увязать реализацию стратегии компании с ее
+                                        операционной деятельностью, посредством выделения и
+                                        делегирования ответственности конкретным сотрудникам
+                                    </p>
+                                </div>
+                                Карта целей компании по методике BSC
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Осуществляйте контроль деловой активности и
+                                        эффективности ключевых показателей (финансовых, производственных и др.)
+                                        каждого сотрудника и любого структурного подразделения
+                                    </p>
+                                </div>
+                                Измеряемые показатели (KPI)
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>Управляйте инициативами, задачами и проектами в соответствии со SMART-критериями</p>
+                                </div>
+                                Проверяемые показатели (SMART-задачи)
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>Удобный инструмент для оценки исполнения персоналом внутренних процедур и регламентов</p>
+                                </div>
+                                Оцениваемые показатели (Стандарты и чек-лист)
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Ведите единую библиотеку целевых показателей и группируйте их по вашей методологии.
+                                        Никаких ограничений по количеству
+                                    </p>
+                                </div>
+                                Неограниченная библиотека показателей
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Изменения в Системе остаются с вами, просматривайте историю работы с
+                                        интерактивными объектами или вернитесь к предыдущей версии в случае ошибки
+                                    </p>
+                                </div>
+                                Поддержка истории изменений
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="Нет">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="Нет">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="Оплата отдельно">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Возможность создания и поддержки нескольких типов показателей:
+                                        корпоративные, командные, индивидуальные
+                                    </p>
+                                </div>
+                                Корпоративные показатели
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="Нет">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="Нет">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="Оплата отдельно">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr class="pivot-header">
+                            <th colspan="3">Карты целей (матрицы kpi)</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Формируйте для каждого сотрудника матрицу ключевых
+                                        показателей для контроля исполнения и расчета бонуса
+                                    </p>
+                                </div>
+                                Карта целей для сотрудника
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>Благодаря гибкой системе виджетов настраивайте визуальное отображение рабочего стола</p>
+                                </div>
+                                Настройки интерфейсов (виджетов)
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>Гибкая настройка в пользовательском режиме алгоритмов расчета факта по показателям</p>
+                                </div>
+                                Конструктор формул
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>Группировка целевых показателей по видам: корпоративные, командные, индивидуальные</p>
+                                </div>
+                                Группировки по типам KPI
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="Нет">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="Нет">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="Оплата отдельно">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>Возможность назначить ответственных за внесение плана и факта по показателям</p>
+                                </div>
+                                Ответственные за ввод данных
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>Используйте специальную проформу для массового ввода данных по планам и фактам</p>
+                                </div>
+                                Массовый ввод плановых и фактических значений
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Собирайте данные по плановым и фактическим значениям от
+                                        подчиненных к руководителю или наоборот в режиме реального времени
+                                    </p>
+                                </div>
+                                Каскадирование плановых и фактических значений
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="Нет">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Создавайте карты на различные периоды:
+                                        на день, неделю, месяц, квартал, полугодие, год
+                                    </p>
+                                </div>
+                                Поддержка периодичности карты целей
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Выстраивание каскадной модели показателей,
+                                        значения плана и факта перейдут из месяца в квартал и т.д.
+                                    </p>
+                                </div>
+                                Агрегирование плановых и фактических значений
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>Собирайте данные по плану и факту по различным срезам внутри одного показателя</p>
+                                </div>
+                                Поддержка аналитических срезов
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="Нет">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>Создавайте шаблоны и применяйте их сотрудникам с одинаковым набором показателей</p>
+                                </div>
+                                Шаблоны карты целей
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Базовые роли системы: HR-администратор организации,
+                                        Кадровик, Менеджер, Пользователь, Расчетчик зарплаты,
+                                        Расчет премии по подразделению, Руководитель проектами,
+                                        Администратор. Кроме того, роли могут определяться динамически в
+                                        зависимости от позиции в организационной структуре
+                                    </p>
+                                </div>
+                                Расширенная ролевая модель системы
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr class="pivot-header">
+                            <th colspan="3">Задачи и проекты</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Система позволяет сотруднику просматривать свои задачи и сроки,
+                                        критерии, приоритеты для её выполнения, а также прикреплять любые отчеты и документы
+                                    </p>
+                                </div>
+                                Контроль и выполнение задач
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Любая задача, поставленная сотруднику или руководителю на определенный период,
+                                        может быть «разбита» на отдельные подзадачи для конечных исполнителей (подчиненных).
+                                        Система предоставляет возможность просмотра иерархии делегированных задач
+                                    </p>
+                                </div>
+                                Поддержка функции делегирования
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Возможность формирования протоколов совещаний и
+                                        распределения оперативных поручений для их участников
+                                    </p>
+                                </div>
+                                Управление совещаниями
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="Нет">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Поддержка уведомлений сотрудников о задачах.
+                                        Уведомления доставляются возможностями платформы 1С:
+                                        Предприятие или посредством электронной почты
+                                    </p>
+                                </div>
+                                Система оповещений
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Журнал изменений, в котором фиксируются любые действия при работе с задачей.
+                                        В любой момент доступна история изменений по каждой из задач
+                                    </p>
+                                </div>
+                                История работы с задачей
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Создавайте вехи, этапы, под этапы проекта - назначайте по ним задачи и
+                                        осуществляйте контроль их исполнения. Проектные задачи отображаются в
+                                        виде наглядной классической ленточной диаграммы Ганта
+                                    </p>
+                                </div>
+                                Функция проектного управления
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="Нет">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="Нет">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Оценивайте поставленные задачи в соответствии со
+                                        SMART-критериями или по принципу да/нет
+                                    </p>
+                                </div>
+                                Оценка задач по принципу SMART
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Соотношение между выполненными задачами и утвержденными
+                                        (в соответствии с их весом) рассчитывается в виде коэффициента
+                                        результативности и используется для определения размера вознаграждения сотрудника
+                                    </p>
+                                </div>
+                                Взаимосвязь выполнения задач с вознаграждением
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr class="pivot-header">
+                            <th colspan="3">Оценка по чек-листам и стандартам</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Система позволяет использовать классическую поведенческую шкалу (BARS),
+                                        АВСD, так и произвольную шкалу оценок и назначать необходимый вес для оценочного стандарта
+                                    </p>
+                                </div>
+                                Шкала оценок
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        В системе реализована возможность добавления комментариев к каждой оценке,
+                                        что обеспечивает возможность регулярной обратной связи для экспертов и оцениваемых
+                                    </p>
+                                </div>
+                                Комментарии к оценке
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        С помощью отдельной панели стандартов оценивающий сотрудник
+                                        имеет возможность проставить оценки в один клик
+                                    </p>
+                                </div>
+                                Массовой ввод оценок
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        У сотрудника есть возможность провести самооценку по установленным критериям,
+                                        что позволяет выявить степень понимания сотрудником предъявляемых к нему требований
+                                    </p>
+                                </div>
+                                Самооценка
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Программа, в соответствии с заданным алгоритмом,
+                                        трансформирует оценки в числовые значения, которые в
+                                        дальнейшем используются для расчета вознаграждения
+                                    </p>
+                                </div>
+                                Влияние на премирование
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr class="pivot-header">
+                            <th colspan="3">Организационный дизайн и бизнес-процессы</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Построение управленческой структуры для взаимосвязи между
+                                        руководителями и подчиненными, иерархия на уровне отделов и
+                                        находящихся в них сотрудников
+                                    </p>
+                                </div>
+                                Формирование организационной структуры компании
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Определение грейдов для категорий сотрудников с
+                                        возможностью использования грейда при формировании
+                                        системы оплаты труда и автоматизированных расчетах
+                                    </p>
+                                </div>
+                                Грейдирование сотрудников
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="Нет">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Бизнес-процесс "Планирование" нужен для координации работы
+                                        пользователей в системе при заполнении своих карт целей,
+                                        проверки у руководителя и утверждения у ответственного
+                                    </p>
+                                </div>
+                                Процесс согласование целей и KPI
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="Нет">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Бизнес-процесс "Подведение итогов" нужен при закрытии отчетного периода,
+                                        ввода и утверждения фактических значений, расчета премии
+                                    </p>
+                                </div>
+                                Процесс оценки результативности (по KPI)
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="Нет">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>
+                                        Процессы согласования и утверждения новых организационных (штатных)
+                                        единиц по определенному сценарию (в том числе согласование бюджета расходов по новым единицам),
+                                        упразднение существующих штатных единиц
+                                    </p>
+                                </div>
+                                Процессы организационных изменений
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="Нет">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="Нет">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="Оплата отдельно">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>Отображение в структуре штатных единиц, которые еще не утверждены к созданию</p>
+                                </div>
+                                Визуализация процесса орг. дизайна
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="Нет">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="Нет">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="Оплата отдельно">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>Возможность настройки ответственных за этап бизнес-процесса сотрудников</p>
+                                </div>
+                                Настройка адресации задач бизнес-процесса
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="Нет">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>Расширенный функционал по созданию собственных бизнес-процессов отличных от установленных в системе</p>
+                                </div>
+                                Конструктор бизнес-процессов
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="Нет">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="Нет">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="Оплата отдельно">
+                                </figure>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="question-mark absolute-ruble"></div>
+                                <div class="question-hint">
+                                    <p>Автоматическая отправка напоминаний о необходимости провести выполнить задачи по запущенным процессам</p>
+                                </div>
+                                Напоминания по задачам
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/cross.svg" alt="Нет">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                            <td>
+                                <figure>
+                                    <img src="img/staff_selection/main-content/calculator/tick.svg" alt="Да">
+                                </figure>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="footnote">
+                        <figure>
+                            <img src="img/staff_selection/main-content/calculator/ruble.svg" alt="">
+                        </figure>
+                        <p>функциональность дополнительно согласовывается в ходе сбора требований по проекту и оплачивается отдельно</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="actions-place mist">
+            <button class="calculator-actions show-functionality-btn" id="show-functionality-btn" type="button">Показать функционал</button>
+            <a class="calculator-actions download-comparison-table-link" id="download-comparison-table-link" href="" download>Скачать таблицу сравнения</a>
+        </div>
+    </div>
+    <div class="rates-outer-block-mobile">
+        <article class="mobile-table-place">
+            <table class="rates-mobile-table">
+                <tr>
+                    <th class="mobile-table-header rates-mobile-header">Тарифы</th>
+                    <th class="mobile-table-header rates-prices-mobile-header">Стоимость</th>
+                </tr>
+                <tr>
+                    <td class="rates-name-mobile">Быстрый старт</td>
+                    <td class="rates-price-mobile fast-start">4 000 руб</td>
+                </tr>
+                <tr>
+                    <td class="rates-name-mobile">Расширенный</td>
+                    <td class="rates-price-mobile extended">8 000 руб</td>
+                </tr>
+                <tr>
+                    <td class="rates-name-mobile">Корпоративный</td>
+                    <td class="rates-price-mobile">
+                        <span>по запросу</span>
+                        <span>за 1 месяц</span>
+                        <span>предоплата за полгода</span>
+                    </td>
+                </tr>
+            </table>
+            <a class="download-table-mobile" id="download-table-mobile" href="#" download>Скачать таблицу сравнения</a>
+        </article>
+    </div>
+</section>
+<script src="calculator.js"></script>
+</body>
+</html>
