@@ -75,15 +75,14 @@ document.getElementById('show-functionality-btn').addEventListener('click', btn 
     btn.target.innerText = currentBtnText;
 });
 
-// логика рассчета
+// логика расчета
 const middle = 1700;
-
 const priceList = {
-    5: 131100,
-    10: 176316,
-    20: 296196,
-    50: 568836,
-    100: 863460
+    5:  9807.04,
+    10:  17548.24,
+    20:  28011.08,
+    50:  52371.12,
+    100:  79863.64
 };
 
 document.getElementById('calculate-btn').addEventListener('click', e => {
@@ -94,17 +93,15 @@ document.getElementById('calculate-btn').addEventListener('click', e => {
     // calculateData[0][1] - левое поле
     // calculateData[1][1] - правое поле
 
-    const leftYear = calculateData[0][1] * middle;
-    const leftMonth = leftYear / 12;
-
-    const rightYear = priceList[calculateData[1][1]];
-    const rightMonth = rightYear / 12;
-
-    const fullYearSumm = leftYear + rightYear;
+    const leftMonth = calculateData[0][1] * middle / 12;
+    const rightMonth = priceList[calculateData[1][1]];
     const fullMonthSumm = leftMonth + rightMonth;
+    const increasePercent = fullMonthSumm * 30 / 100
+    const fullMonthSummExtended = fullMonthSumm + increasePercent;
 
     const fastStartFormatted = Math.round(fullMonthSumm).toLocaleString();
+    const extendedFormatted = Math.round(fullMonthSummExtended).toLocaleString();
 
     document.querySelectorAll('.fast-start').forEach(item => item.innerHTML = `${fastStartFormatted} руб`);
-    //document.querySelectorAll('.extended').forEach(item => item.innerHTML = `${extendedFormatted} руб`);*/
+    document.querySelectorAll('.extended').forEach(item => item.innerHTML = `${extendedFormatted} руб`);
 });
