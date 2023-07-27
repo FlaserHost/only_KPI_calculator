@@ -259,6 +259,7 @@ input[type="number"] {
     color: #313844;
     font-weight: 400;
     padding-left: 0;
+    width: 342px;
 }
 
 .header-row > td {
