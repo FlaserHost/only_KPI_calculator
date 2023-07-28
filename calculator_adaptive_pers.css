@@ -7,6 +7,14 @@
         min-width: 222px;
     }
 
+    .table-rates th {
+        width: 300px;
+    }
+
+    .header-row > td {
+        font-size: 25px;
+    }
+
     .field-area {
         width: 314px;
     }
@@ -25,6 +33,7 @@
         padding-left: 46px;
         font-size: 16px;
         padding-right: 82px;
+        width: 225px;
     }
 
     .fixed-header-bg-color .header-row > td {
@@ -36,7 +45,7 @@
     }
 
     .header-row > td {
-        font-size: 21px;
+        font-size: 19px;
     }
 
     .functions-table tr {
@@ -48,7 +57,7 @@
     }
 
     .functions-table tr > td:not(:first-child) {
-        min-width: 164px;
+        min-width: 159px;
     }
 
     .absolute-ruble {
@@ -63,8 +72,13 @@
     .calculator-actions {
         font-size: 15px;
     }
+
     .question-hint {
         width: 230px;
+    }
+
+    .price {
+        font-size: 18px;
     }
 }
 

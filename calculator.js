@@ -4,28 +4,27 @@ const triangles = document.querySelectorAll('.triangle-btn');
 const min = 10;
 const max = 5000;
 let interval;
+
+const increaseDegrease = e => {
+    const currentProperty = e.target.dataset.property;
+    const closestInput = e.target.closest('.input-place').querySelector('.form-field');
+    let closestInputValue = +closestInput.value;
+
+    currentProperty === 'up' ? closestInputValue++ : closestInputValue--;
+
+    if (closestInputValue > max) {
+        closestInputValue = max;
+    } else if (closestInputValue < min) {
+        closestInputValue = min;
+    }
+
+    closestInput.value = closestInputValue;
+}
 triangles.forEach(triangle => {
-    triangle.addEventListener('click', e => {
-        const currentProperty = e.target.dataset.property;
-        const closestInput = e.target.closest('.input-place').querySelector('.form-field');
-        let closestInputValue = +closestInput.value;
-
-        currentProperty === 'up' ? closestInputValue++ : closestInputValue--;
-
-        if (closestInputValue > max) {
-            closestInputValue = max;
-        } else if (closestInputValue < min) {
-            closestInputValue = min;
-        }
-
-        closestInput.value = closestInputValue;
-    });
-
-    triangle.addEventListener('touchstart', e => interval = setInterval(() => e.target.click(), 100));
+    triangle.addEventListener('click', e => increaseDegrease(e));
+    triangle.addEventListener('touchstart', e => interval = setInterval(() => increaseDegrease(e), 100));
     triangle.addEventListener('touchend', () => clearInterval(interval));
 });
-
-
 
 // ограничение числовых полей
 const numberField = document.querySelector('.new-calculator-form input.form-field');
@@ -63,7 +62,7 @@ document.getElementById('show-functionality-btn').addEventListener('click', btn 
         mistBlock.classList.remove('mist');
         currentBtnText = 'скрыть функционал';
     } else {
-        document.querySelector('html').scroll({top: (rates * -1) - 200, behavior: 'smooth'});
+        document.querySelector('html').scroll({top: rates * -1 - 200, behavior: 'smooth'});
         functionsWindowStyle.height = '370px';
         mistBlock.classList.add('mist');
         currentBtnText = 'показать функционал';
