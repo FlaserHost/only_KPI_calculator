@@ -1,43 +1,43 @@
 // треугольники регулировщики
 const triangles = document.querySelectorAll('.triangle-btn');
 
-const leftFieldMax = 3000;
-const rightFieldMax = 5000;
-
+const min = 10;
+const max = 5000;
+let interval;
 triangles.forEach(triangle => {
     triangle.addEventListener('click', e => {
         const currentProperty = e.target.dataset.property;
         const closestInput = e.target.closest('.input-place').querySelector('.form-field');
-        const closestInputID = closestInput.getAttribute('id');
         let closestInputValue = +closestInput.value;
-        let limit = closestInputID === 'kedo-field' ? leftFieldMax : rightFieldMax;
 
         currentProperty === 'up' ? closestInputValue++ : closestInputValue--;
 
-        if (closestInputValue > limit)
-        {
-            closestInputValue = limit;
-        }
-        else if (closestInputID === 'kedo-field' && closestInputValue <= 0)
-        {
-            closestInputValue = 1;
-        }
-        else if (closestInputValue <= 0)
-        {
-            closestInputValue = 0;
+        if (closestInputValue > max) {
+            closestInputValue = max;
+        } else if (closestInputValue < min) {
+            closestInputValue = min;
         }
 
         closestInput.value = closestInputValue;
     });
+
+    triangle.addEventListener('touchstart', e => interval = setInterval(() => e.target.click(), 100));
+    triangle.addEventListener('touchend', () => clearInterval(interval));
 });
 
+
+
 // ограничение числовых полей
-const numberFields = document.querySelectorAll('.new-calculator-form input.form-field');
-numberFields.forEach(field => field.addEventListener('input', e => {
-    const thisField = e.target.getAttribute('id');
-    const limit = thisField === 'kedo-field' ? leftFieldMax : rightFieldMax;
-    e.target.value = e.target.value <= limit ? +e.target.value : limit;
-}));
+const numberField = document.querySelector('.new-calculator-form input.form-field');
+numberField.addEventListener('input', e => {
+    if (e.target.value >= 10 && e.target.value <= 5000) {
+        e.target.value = +e.target.value;
+    } else if (e.target.value < min) {
+        e.target.value = min;
+    } else if (e.target.value > max) {
+        e.target.value = max;
+    }
+});
 
 // события прокрутки
 const rates = document.querySelector('.rates-outer-block').offsetTop * -1;
@@ -59,13 +59,10 @@ document.getElementById('show-functionality-btn').addEventListener('click', btn 
     const fullTableHeight = document.querySelector('.functions-window__table-place').getBoundingClientRect().height + 40;
     functionsWindowStyle.height = `${fullTableHeight}px`;
 
-    if (currentBtnText === 'показать функционал')
-    {
+    if (currentBtnText === 'показать функционал') {
         mistBlock.classList.remove('mist');
         currentBtnText = 'скрыть функционал';
-    }
-    else
-    {
+    } else {
         document.querySelector('html').scroll({top: (rates * -1) - 200, behavior: 'smooth'});
         functionsWindowStyle.height = '370px';
         mistBlock.classList.add('mist');
