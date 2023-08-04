@@ -86,11 +86,8 @@ document.getElementById('calculate-btn').addEventListener('click', e => {
     const calculateForm = document.getElementById('new-calculator-form');
     const calculateData = [...new FormData(calculateForm)]; // аналогично как Array.from(new FormData(calculateForm))
 
-    // calculateData[0][1] - левое поле
-    // calculateData[1][1] - правое поле
-
-    const leftMonth = calculateData[0][1] * middle / 12;
-    const rightMonth = priceList[calculateData[1][1]];
+    const leftMonth = calculateData[2][1] * middle / 12;
+    const rightMonth = priceList[calculateData[3][1]];
     const fullMonthSumm = leftMonth + rightMonth;
     const increasePercent = fullMonthSumm * 30 / 100
     const fullMonthSummExtended = fullMonthSumm + increasePercent;
