@@ -101,7 +101,7 @@ document.getElementById('calculate-btn').addEventListener('click', e => {
     const fastStartFormatted = Math.round(fullMonthSumm).toLocaleString();
     const extendedFormatted = Math.round(fullMonthSummExtended).toLocaleString();
 
-    const ratesPrices = document.querySelectorAll('.prices .price');
+    const ratesPrices = document.querySelectorAll('.prices .discount');
     const discount = document.querySelectorAll('.price-after-discount');
 
     if (discount.length) {
@@ -111,6 +111,7 @@ document.getElementById('calculate-btn').addEventListener('click', e => {
 
     if (discountPercent > 0) {
         const prices = document.querySelectorAll('.prices');
+
         const fullMonthResult = fullMonthSumm - (fullMonthSumm * discountPercent / 100); // полная стоимость СТАРТ со скидкой (если есть)
         const fullMonthResultExtended = fullMonthSummExtended - (fullMonthSummExtended * discountPercent / 100); // полная стоимость РАСШИРЕННЫЙ со скидкой (если есть)
 
@@ -123,7 +124,12 @@ document.getElementById('calculate-btn').addEventListener('click', e => {
              </div>`);
 
         ratesPrices.forEach(item => item.classList.add('discount-old-price'));
-        prices.forEach((item, index) => item.insertAdjacentHTML('afterbegin', resultsArray[index]));
+
+        let counter = 0;
+        prices.forEach(item => {
+            item.insertAdjacentHTML('afterbegin', resultsArray[counter]);
+            counter = counter !== resultsArray.length - 1 ? ++counter : 0;
+        });
     }
 
     document.querySelectorAll('.fast-start').forEach(item => item.innerHTML = `${fastStartFormatted} руб`);
