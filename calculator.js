@@ -81,19 +81,28 @@ const priceList = {
     100:  79863.64
 };
 
+const calculateForm = document.getElementById('new-calculator-form');
+const discountData = document.querySelectorAll('.discount-field');
+
 document.getElementById('calculate-btn').addEventListener('click', e => {
     e.preventDefault();
-    const calculateForm = document.getElementById('new-calculator-form');
+    const discountPercent = discountData[0].value;
+    const discountTime = discountData[1].value;
+
     const calculateData = [...new FormData(calculateForm)]; // аналогично как Array.from(new FormData(calculateForm))
 
     const leftMonth = calculateData[2][1] * middle / 12;
     const rightMonth = priceList[calculateData[3][1]];
-    const fullMonthSumm = leftMonth + rightMonth;
-    const increasePercent = fullMonthSumm * 30 / 100
-    const fullMonthSummExtended = fullMonthSumm + increasePercent;
 
-    const fastStartFormatted = Math.round(fullMonthSumm).toLocaleString();
-    const extendedFormatted = Math.round(fullMonthSummExtended).toLocaleString();
+    const fullMonthSumm = leftMonth + rightMonth; // полная стоимость СТАРТ без скидки
+    const increasePercent = fullMonthSumm * 30 / 100 // 30% от полной стоимости СТАРТ
+    const fullMonthSummExtended = fullMonthSumm + increasePercent; /// полная стоимость РАСШИРЕННЫЙ без скидки
+
+    const fullMonthResult = fullMonthSumm - (fullMonthSumm * discountPercent / 100); // полная стоимость СТАРТ со скидкой (если есть)
+    const fullMonthResultExtended = fullMonthSummExtended - (fullMonthSummExtended * discountPercent / 100); // полная стоимость РАСШИРЕННЫЙ со скидкой (если есть)
+
+    const fastStartFormatted = Math.round(fullMonthResult).toLocaleString();
+    const extendedFormatted = Math.round(fullMonthResultExtended).toLocaleString();
 
     document.querySelectorAll('.fast-start').forEach(item => item.innerHTML = `${fastStartFormatted} руб`);
     document.querySelectorAll('.extended').forEach(item => item.innerHTML = `${extendedFormatted} руб`);
