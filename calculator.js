@@ -86,7 +86,7 @@ const discountData = document.querySelectorAll('.discount-field');
 
 document.getElementById('calculate-btn').addEventListener('click', e => {
     e.preventDefault();
-    const discountPercent = discountData[0].value;
+    const discountPercent = +discountData[0].value;
     const discountTime = discountData[1].value;
 
     const calculateData = [...new FormData(calculateForm)]; // аналогично как Array.from(new FormData(calculateForm))
@@ -98,11 +98,33 @@ document.getElementById('calculate-btn').addEventListener('click', e => {
     const increasePercent = fullMonthSumm * 30 / 100 // 30% от полной стоимости СТАРТ
     const fullMonthSummExtended = fullMonthSumm + increasePercent; /// полная стоимость РАСШИРЕННЫЙ без скидки
 
-    const fullMonthResult = fullMonthSumm - (fullMonthSumm * discountPercent / 100); // полная стоимость СТАРТ со скидкой (если есть)
-    const fullMonthResultExtended = fullMonthSummExtended - (fullMonthSummExtended * discountPercent / 100); // полная стоимость РАСШИРЕННЫЙ со скидкой (если есть)
+    const fastStartFormatted = Math.round(fullMonthSumm).toLocaleString();
+    const extendedFormatted = Math.round(fullMonthSummExtended).toLocaleString();
 
-    const fastStartFormatted = Math.round(fullMonthResult).toLocaleString();
-    const extendedFormatted = Math.round(fullMonthResultExtended).toLocaleString();
+    const ratesPrices = document.querySelectorAll('.prices .price');
+    const discount = document.querySelectorAll('.price-after-discount');
+
+    if (discount.length) {
+        discount.forEach(item => item.remove());
+        ratesPrices.forEach(item => item.classList.remove('discount-old-price'));
+    }
+
+    if (discountPercent > 0) {
+        const prices = document.querySelectorAll('.prices');
+        const fullMonthResult = fullMonthSumm - (fullMonthSumm * discountPercent / 100); // полная стоимость СТАРТ со скидкой (если есть)
+        const fullMonthResultExtended = fullMonthSummExtended - (fullMonthSummExtended * discountPercent / 100); // полная стоимость РАСШИРЕННЫЙ со скидкой (если есть)
+
+        const fastStartDiscountFormatted = Math.round(fullMonthResult).toLocaleString();
+        const extendedDiscountFormatted = Math.round(fullMonthResultExtended).toLocaleString();
+
+        const resultsArray = [fastStartDiscountFormatted, extendedDiscountFormatted].map(item => `<div class="price-after-discount">
+                    <span class="discount-new-price">${item} руб</span>
+                    <div class="discount-deadline">Срок действия акции до ${discountTime}</div>
+             </div>`);
+
+        ratesPrices.forEach(item => item.classList.add('discount-old-price'));
+        prices.forEach((item, index) => item.insertAdjacentHTML('afterbegin', resultsArray[index]));
+    }
 
     document.querySelectorAll('.fast-start').forEach(item => item.innerHTML = `${fastStartFormatted} руб`);
     document.querySelectorAll('.extended').forEach(item => item.innerHTML = `${extendedFormatted} руб`);
