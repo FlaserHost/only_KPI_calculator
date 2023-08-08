@@ -29,7 +29,7 @@ triangles.forEach(triangle => {
 // ограничение числовых полей
 const numberField = document.querySelector('.new-calculator-form input.form-field');
 numberField.addEventListener('input', e => {
-    if (e.target.value >= 10 && e.target.value <= 5000) {
+    if (e.target.value >= min && e.target.value <= max) {
         e.target.value = +e.target.value;
     } else if (e.target.value < min) {
         e.target.value = min;
